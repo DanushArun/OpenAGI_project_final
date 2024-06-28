@@ -31,8 +31,6 @@ sends requests to the backend, which processes these requests and interacts with
 
 ### Architecture Diagram
 
-![Architecture Diagram](#)
-
 openagi-project/
 ├── backend/
 │ ├── init.py
