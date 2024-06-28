@@ -5,6 +5,7 @@ built using React and a backend built using FastAPI.
 ## Project Structure
 openagi-project/
 ├── backend/
+
 │ ├── init.py
 │ ├── database.py
 │ ├── main.py
