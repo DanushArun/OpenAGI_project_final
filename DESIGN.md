@@ -33,8 +33,27 @@ sends requests to the backend, which processes these requests and interacts with
 
 ![Architecture Diagram](#)
 
-*Include a diagram here that visually represents the system architecture, including frontend, 
-backend, and database components.*
+openagi-project/
+├── backend/
+│ ├── init.py
+│ ├── database.py
+│ ├── main.py
+│ ├── models.py
+│ ├── routers/
+│ │ ├── init.py
+│ │ ├── components.py
+│ ├── schemas.py
+├── frontend/
+│ ├── public/
+│ │ ├── index.html
+│ └── src/
+│ ├── components/
+│ │ ├── MainContent.js
+│ ├── App.js
+│ ├── index.js
+│ ├── package.json
+├── .gitignore
+└── README.md
 
 ### Components Description
 
