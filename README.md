@@ -1,8 +1,67 @@
+![OpenAGI workflow](docs/assets/project-overview.svg)
+
 # OpenAGI
+
+**An agent-builder scaffold with an explicit path from design to implementation.**
 
 A React and FastAPI scaffold for assembling AI components into workflows.
 The repository captures a proposed builder interface and partial backend models.
 It does not yet provide a working end-to-end agent execution platform.
+
+
+![React](https://img.shields.io/badge/React-181f28)
+![FastAPI](https://img.shields.io/badge/FastAPI-181f28)
+![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-181f28)
+
+[Architecture](docs/ARCHITECTURE.md) · [Evaluation guide](docs/EVALUATION.md)
+
+**Contents:** [The challenge](#the-challenge) · [Walkthrough](#walk-through-the-project) ·
+[Implementation](#implementation-state) · [Design choices](#engineering-choices) ·
+[Next evidence](#next-evidence-to-collect)
+
+---
+
+## The challenge
+
+A low-code agent builder has to align the canvas, component catalog, persistence and execution
+API. This repository records the start of that design, but its frontend/backend contracts and
+entry-point wiring are incomplete. Understanding those boundaries is the useful first step toward
+a working system.
+
+## System at a glance
+
+```mermaid
+flowchart LR
+    N0["Builder design"]
+    N1["React scaffold"]
+    N2["FastAPI scaffold"]
+    N3["Unimplemented execution"]
+    N0 --> N1
+    N1 --> N2
+    N2 --> N3
+```
+
+## Walk through the project
+
+### 1. Read the intended design
+
+Compare DESIGN.md with the actual frontend and backend files. Treat requirements as proposed scope
+rather than completed functionality.
+
+### 2. Inspect the editor source
+
+Review the sidebar and MainContent component, their props and expected API calls. The current
+app/entry wiring does not form a verified runnable frontend.
+
+### 3. Inspect the API model
+
+Follow LLM/Agent models and component/workflow routes. Compare schema placement, response models
+and database configuration with the UI expectations.
+
+### 4. Reconcile before running
+
+Resolve entry points, imports, dependencies and contracts before an end-to-end trial. No API
+provider execution pipeline is supplied by the current scaffold.
 
 ## Implementation map
 
@@ -53,3 +112,33 @@ appropriate local configuration before attempting to run it.
 The README was checked against tracked source and dependency manifests. No end-to-end launch
 or provider call was performed. There is no automated test suite or verified deployment here.
 Workflow execution, complete component CRUD and production readiness remain unverified.
+
+## Engineering choices
+
+**Design and build remain separate.** A design document does not prove that its routes and models
+were implemented.
+
+**Contracts before integration.** The frontend requested resources and backend routes must agree
+before an execution claim.
+
+**Syntax is a narrow check.** Parsing Python does not catch missing runtime names or incorrect
+ORM/Pydantic usage.
+
+## Implementation state
+
+| State | Current evidence |
+| --- | --- |
+| Present | Builder design and partial interface components |
+| Present | Partial API routes and LLM/Agent models |
+| Blocked | Entry/import/schema/database contract wiring |
+| Not implemented | Verified end-to-end agent execution |
+
+The [architecture guide](docs/ARCHITECTURE.md) maps these statements to source entry points.
+The [evaluation guide](docs/EVALUATION.md) separates inspection, executable checks and
+domain validation, with the next evidence needed for each project.
+
+## Next evidence to collect
+
+- Reconcile frontend entry points and imports.
+- Define a single database/schema contract.
+- Build and test one complete saved workflow before expanding execution scope.
